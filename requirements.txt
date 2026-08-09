@@ -1,0 +1,15 @@
+# Core — everything in this repo is built on these three.
+numpy>=1.24
+matplotlib>=3.7
+
+# Notebook environment
+jupyterlab>=4.0
+ipykernel>=6.25
+
+# Used ONLY for loading toy datasets and for sanity-checking our
+# hand-written implementations against a reference. Never for the
+# implementations themselves.
+scikit-learn>=1.3
+
+# Dev
+pytest>=7.4
