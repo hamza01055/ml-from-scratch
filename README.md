@@ -33,23 +33,24 @@ that's a bonus.
 
 ## Chapters
 
-| # | Notebook | What you'll build | Status |
-|---|---|---|---|
-| 00 | [Setup & NumPy refresher](notebooks/00_setup_and_numpy_refresher.ipynb) | Shapes, broadcasting, vectorisation, numerical stability | Complete |
-| 01 | [Linear regression](notebooks/01_linear_regression.ipynb) | Normal equation + gradient descent, from the same loss | Complete |
-| 02 | [Gradient descent in depth](notebooks/02_gradient_descent.ipynb) | SGD, momentum, Adam — with the optimisation paths drawn | Complete |
-| 03 | [Logistic regression](notebooks/03_logistic_regression.ipynb) | Sigmoid, cross entropy, decision boundaries, why MSE fails | Complete |
-| 04 | [Neural nets & backprop](notebooks/04_neural_network_backprop.ipynb) | A full MLP and backprop, gradient-checked | Complete |
-| 05 | [Regularisation](notebooks/05_regularization.ipynb) | L1/L2, dropout, early stopping, bias-variance | In progress |
-| 06 | [k-NN & k-Means](notebooks/06_knn_and_kmeans.ipynb) | Distance metrics, clustering, curse of dimensionality | In progress |
-| 07 | [Decision trees](notebooks/07_decision_trees.ipynb) | Gini, information gain, bagging, random forests | In progress |
-| 08 | [PCA](notebooks/08_pca_and_dimensionality.ipynb) | Eigendecomposition, SVD, explained variance | In progress |
-| 09 | [Model evaluation](notebooks/09_model_evaluation.ipynb) | Cross-validation, ROC/AUC, data leakage | In progress |
-| 10 | [Naive Bayes & SVM](notebooks/10_naive_bayes_and_svm.ipynb) | Hinge loss, margins, the kernel trick | In progress |
-| 11 | [Tiny autodiff engine](notebooks/11_micrograd_autodiff.ipynb) | Reverse-mode autodiff in ~100 lines | In progress |
+| # | Notebook | What you'll build |
+|---|---|---|
+| 00 | [Setup & NumPy refresher](notebooks/00_setup_and_numpy_refresher.ipynb) | Shapes, broadcasting, vectorisation, numerical stability |
+| 01 | [Linear regression](notebooks/01_linear_regression.ipynb) | Normal equation + gradient descent, from the same loss |
+| 02 | [Gradient descent in depth](notebooks/02_gradient_descent.ipynb) | SGD, momentum, Adam — with the optimisation paths drawn |
+| 03 | [Logistic regression](notebooks/03_logistic_regression.ipynb) | Sigmoid, cross entropy, decision boundaries, why MSE fails |
+| 04 | [Neural nets & backprop](notebooks/04_neural_network_backprop.ipynb) | A full MLP and backprop, gradient-checked |
+| 05 | [Regularisation](notebooks/05_regularization.ipynb) | Ridge, lasso via coordinate descent, dropout, early stopping, bias-variance measured empirically |
+| 06 | [k-NN & k-Means](notebooks/06_knn_and_kmeans.ipynb) | Distance metrics, k-means++, silhouette, the curse of dimensionality |
+| 07 | [Decision trees](notebooks/07_decision_trees.ipynb) | Gini, information gain, bagging, random forests, OOB error |
+| 08 | [PCA](notebooks/08_pca_and_dimensionality.ipynb) | Eigendecomposition vs SVD, explained variance, denoising, where it fails |
+| 09 | [Model evaluation](notebooks/09_model_evaluation.ipynb) | Stratified k-fold, data leakage, ROC/AUC, bootstrap confidence intervals |
+| 10 | [Naive Bayes & SVM](notebooks/10_naive_bayes_and_svm.ipynb) | Log-space likelihoods, hinge loss, margins, the kernel trick |
+| 11 | [Tiny autodiff engine](notebooks/11_micrograd_autodiff.ipynb) | Reverse-mode autodiff in ~100 lines, then a network trained on it |
 
-Chapters 00–04 are written out in full and run end to end. The rest have complete
-outlines and working starter code, and get filled in as I work through them.
+**All twelve chapters are written out in full.** Every notebook runs end to end
+in CI with its outputs committed, so what you see is what the code actually
+produced.
 
 ---
 
@@ -97,6 +98,13 @@ print(accuracy(y_test, net.predict(X_test)))
 | `losses.py` | MSE, binary & categorical cross entropy, with gradients |
 | `models.py` | `LinearRegression`, `LogisticRegression`, `NeuralNetwork` |
 | `optim.py` | `SGD` (with momentum), `Adam` (with bias correction) |
+| `neighbors.py` | `KNNClassifier`, `KNNRegressor`, vectorised distance metrics |
+| `cluster.py` | `KMeans` with k-means++, silhouette score |
+| `tree.py` | `DecisionTreeClassifier`, `RandomForestClassifier`, Gini/entropy |
+| `decomposition.py` | `PCA` via SVD, with whitening and reconstruction |
+| `naive_bayes.py` | `GaussianNB`, `MultinomialNB` with Laplace smoothing |
+| `svm.py` | `LinearSVM`, `KernelSVM`, RBF and polynomial kernels |
+| `autograd.py` | `Value`, `Neuron`, `Layer`, `MLP` — reverse-mode autodiff |
 | `metrics.py` | accuracy, precision/recall/F1, confusion matrix, R² |
 | `utils.py` | train/test split, mini-batching, standardisation, gradient checking |
 
@@ -116,17 +124,24 @@ pytest tests/ -v
 ```
 
 ```
-tests/test_gradients.py::test_mse_gradient                                PASSED
-tests/test_gradients.py::test_bce_gradient                                PASSED
-tests/test_gradients.py::test_network_backprop_matches_finite_differences PASSED
-tests/test_models.py::test_normal_equation_recovers_true_weights          PASSED
-tests/test_models.py::test_network_learns_xor_which_is_not_...   PASSED
-...
-11 passed in 0.89s
+tests/test_gradients.py  ..........        analytic vs finite differences
+tests/test_models.py     ......            do the models actually learn?
+tests/test_classical.py  ...............   kNN, k-means, trees, PCA, NB, SVM
+tests/test_autograd.py   .............     the autodiff engine
+59 passed in 14.74s
 ```
 
-The backprop check compares every weight and bias matrix against finite
-differences and requires relative error below `1e-6`. Current worst case: `1.2e-8`.
+Three checks worth calling out:
+
+- **Backprop** (chapter 04) is compared against central-difference finite
+  differences for every weight and bias matrix. Worst relative error: `1.2e-8`.
+- **The autodiff engine** (chapter 11) is checked the same way across a whole
+  network. Worst relative error: `3.1e-8`. Two completely independent
+  implementations agreeing to eight digits is the strongest evidence available
+  that both are right.
+- **`test_kernel_svm_converges_across_C`** is a regression test. With a constant
+  step size the subgradient method diverged for large `C` and silently collapsed
+  to predicting one class. That bug is now pinned.
 
 ---
 
@@ -141,9 +156,27 @@ You do **not** need prior ML experience. That's the point.
 
 ---
 
+## A few things I got wrong along the way
+
+Left in deliberately, because the mistakes are more instructive than the fixes:
+
+- **Greedy trees can't do XOR.** I initially claimed the tree "found the two
+  boundaries on its own." It didn't — every root split on XOR has near-zero
+  information gain, so noise decides which one wins. Chapter 07 now shows the
+  actual numbers.
+- **Kernel SVMs need a decaying step size.** Hinge loss is non-smooth, so this is
+  *subgradient* descent, which only converges with a diminishing step. A constant
+  step made `b` drift without bound. Chapter 10 explains it.
+- **PCA can make things worse.** I expected it to rescue k-NN from the curse of
+  dimensionality. It didn't — PCA maximises variance and has no idea which
+  directions carry the label. Chapter 08 shows the table where it *hurt*.
+- **Leaking a scaler barely matters.** The classic "standardise before splitting"
+  error produced a difference indistinguishable from zero on my data. Chapter 09
+  says so rather than manufacturing a scary number.
+
 ## Contributing
 
-Corrections, clearer explanations, and finished chapters are all welcome.
+Corrections, clearer explanations, and better exercises are all welcome.
 Issues are good for "this explanation didn't land" as well as for bugs — if
 something was confusing, that's a defect in the writing.
 
