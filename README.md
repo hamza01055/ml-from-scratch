@@ -1,203 +1,426 @@
-# Machine Learning from Scratch
+Absolutely. I’d polish it into a **recruiter-friendly, professional open-source README** while keeping the technical depth.
 
-**Every core ML algorithm, implemented in NumPy, derived step by step in Jupyter notebooks.**
+The biggest improvements should be:
 
-[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Tests](https://github.com/hamza01055/ml-from-scratch/actions/workflows/tests.yml/badge.svg)](https://github.com/hamza01055/ml-from-scratch/actions)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hamza01055/ml-from-scratch)
+* Stronger hero section
+* Clean badges
+* Quick project metrics
+* Better chapter navigation
+* Architecture/learning roadmap
+* Clear distinction between notebooks and reusable package
+* Stronger testing/correctness section
+* Less repetitive text
+* Better “Why this matters” positioning
+* Professional About section
+* Cleaner ending CTA
 
-No `scikit-learn`. No PyTorch. No `model.fit()` that hides the interesting part.
-Just NumPy, the math written out, and code you can read top to bottom.
+### Recommended opening
 
----
+````md
+# Machine Learning From Scratch
 
-## Why this repo exists
+> **Understand machine learning by building it from the ground up.**
 
-You can call `LogisticRegression().fit(X, y)` without knowing what a gradient is.
-That works right up until the model does something strange and you have no idea why.
+12 core machine learning chapters implemented with **Python + NumPy**, explained through mathematical derivations, visual experiments, and automated tests.
 
-I'm learning this properly by building each algorithm myself, and writing down the
-derivation as I go. This repo is that work, in public. If it's useful to you too,
-that's a bonus.
+No `scikit-learn`.  
+No PyTorch.  
+No black-box `model.fit()`.
 
-**Every notebook follows the same shape:**
+Just the mathematics, the implementation, and the reasoning behind the algorithms.
 
-1. **The problem** — what breaks if we don't have this
-2. **The math** — derived, not quoted
-3. **The code** — NumPy, commented, no framework
-4. **The check** — analytic gradients verified against finite differences
-5. **Exercises** — the parts I deliberately left for you
-
----
-
-## Chapters
-
-| # | Notebook | What you'll build |
-|---|---|---|
-| 00 | [Setup & NumPy refresher](notebooks/00_setup_and_numpy_refresher.ipynb) | Shapes, broadcasting, vectorisation, numerical stability |
-| 01 | [Linear regression](notebooks/01_linear_regression.ipynb) | Normal equation + gradient descent, from the same loss |
-| 02 | [Gradient descent in depth](notebooks/02_gradient_descent.ipynb) | SGD, momentum, Adam — with the optimisation paths drawn |
-| 03 | [Logistic regression](notebooks/03_logistic_regression.ipynb) | Sigmoid, cross entropy, decision boundaries, why MSE fails |
-| 04 | [Neural nets & backprop](notebooks/04_neural_network_backprop.ipynb) | A full MLP and backprop, gradient-checked |
-| 05 | [Regularisation](notebooks/05_regularization.ipynb) | Ridge, lasso via coordinate descent, dropout, early stopping, bias-variance measured empirically |
-| 06 | [k-NN & k-Means](notebooks/06_knn_and_kmeans.ipynb) | Distance metrics, k-means++, silhouette, the curse of dimensionality |
-| 07 | [Decision trees](notebooks/07_decision_trees.ipynb) | Gini, information gain, bagging, random forests, OOB error |
-| 08 | [PCA](notebooks/08_pca_and_dimensionality.ipynb) | Eigendecomposition vs SVD, explained variance, denoising, where it fails |
-| 09 | [Model evaluation](notebooks/09_model_evaluation.ipynb) | Stratified k-fold, data leakage, ROC/AUC, bootstrap confidence intervals |
-| 10 | [Naive Bayes & SVM](notebooks/10_naive_bayes_and_svm.ipynb) | Log-space likelihoods, hinge loss, margins, the kernel trick |
-| 11 | [Tiny autodiff engine](notebooks/11_micrograd_autodiff.ipynb) | Reverse-mode autodiff in ~100 lines, then a network trained on it |
-
-**All twelve chapters are written out in full.** Every notebook runs end to end
-in CI with its outputs committed, so what you see is what the code actually
-produced.
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](#)
+[![NumPy](https://img.shields.io/badge/NumPy-From%20Scratch-013243?logo=numpy&logoColor=white)](#)
+[![Tests](https://img.shields.io/badge/Tests-59%20Passing-2ea44f)](#testing)
+[![Notebooks](https://img.shields.io/badge/Notebooks-12-orange)](#chapters)
+[![License](https://img.shields.io/badge/License-MIT-green)](#license)
 
 ---
 
-## Quick start
+## ⚡ At a Glance
 
-```bash
-git clone https://github.com/hamza01055/ml-from-scratch.git
-cd ml-from-scratch
+| | |
+|---|---|
+| **12** | Complete ML chapters |
+| **59** | Automated tests |
+| **NumPy** | Core implementation |
+| **Jupyter** | Interactive learning |
+| **Finite Differences** | Gradient verification |
+| **MIT** | Open-source license |
 
-python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
+### Core Topics
 
-pip install -r requirements.txt
-jupyter lab notebooks/
+`Linear Regression` · `Logistic Regression` · `Neural Networks` · `Backpropagation` · `Adam` · `k-NN` · `k-Means` · `Decision Trees` · `Random Forests` · `PCA` · `Naive Bayes` · `SVM` · `Autodiff`
+
+---
+
+## 🎯 Why This Project?
+
+Modern ML libraries make it incredibly easy to train a model:
+
+```python
+model.fit(X, y)
+````
+
+But that single line hides almost everything interesting.
+
+This project takes a different approach:
+
+```text
+Mathematics
+     ↓
+Derivation
+     ↓
+NumPy implementation
+     ↓
+Visualization
+     ↓
+Numerical verification
+     ↓
+Reusable implementation
 ```
 
-Start at `00_setup_and_numpy_refresher.ipynb` and go in order. Each chapter
-assumes the one before it.
+The goal isn't to reinvent production ML frameworks.
 
-**Prefer not to install anything?** Every notebook opens in
-[Google Colab](https://colab.research.google.com/github/hamza01055/ml-from-scratch)
-with zero setup.
+The goal is to understand **what happens underneath them**.
 
 ---
 
-## The `mlscratch` package
+## 🧠 What You'll Learn
 
-The notebooks derive each algorithm slowly. `mlscratch/` is the cleaned-up version
-of the same code, importable once you've understood the derivation.
+By the end of the repository, you'll have implemented:
+
+🧮 Linear Regression — Normal equation and gradient descent
+🎯 Logistic Regression — Sigmoid and cross-entropy
+🧠 Neural Networks — Backpropagation from scratch
+⚡ Optimizers — SGD, Momentum, and Adam
+🛡️ Regularization — L1, L2, dropout, and early stopping
+📍 k-NN & k-Means — Classification and clustering
+🌳 Decision Trees & Random Forests — Gini, information gain, bagging, and OOB evaluation
+📉 PCA — Dimensionality reduction using SVD
+📊 Model Evaluation — Cross-validation, ROC/AUC, and data leakage
+📐 Naive Bayes — Gaussian and Multinomial implementations
+🔷 SVMs — Linear and kernel SVMs
+🔄 Automatic Differentiation — A tiny reverse-mode autodiff engine
+---
+
+## 📚 Chapters
+
+| #  | Topic                                                             | Key Concepts                        |
+| -- | ----------------------------------------------------------------- | ----------------------------------- |
+| 00 | [NumPy Foundations](notebooks/00_setup_and_numpy_refresher.ipynb) | Shapes, broadcasting, vectorization |
+| 01 | [Linear Regression](notebooks/01_linear_regression.ipynb)         | Normal equation, gradient descent   |
+| 02 | [Optimization](notebooks/02_gradient_descent.ipynb)               | SGD, Momentum, Adam                 |
+| 03 | [Logistic Regression](notebooks/03_logistic_regression.ipynb)     | Sigmoid, cross-entropy, boundaries  |
+| 04 | [Neural Networks](notebooks/04_neural_network_backprop.ipynb)     | MLP, backpropagation                |
+| 05 | [Regularization](notebooks/05_regularization.ipynb)               | Ridge, Lasso, dropout               |
+| 06 | [k-NN & k-Means](notebooks/06_knn_and_kmeans.ipynb)               | Neighbors, clustering, k-means++    |
+| 07 | [Decision Trees](notebooks/07_decision_trees.ipynb)               | Gini, entropy, random forests       |
+| 08 | [PCA](notebooks/08_pca_and_dimensionality.ipynb)                  | SVD, variance, reconstruction       |
+| 09 | [Model Evaluation](notebooks/09_model_evaluation.ipynb)           | CV, ROC/AUC, leakage                |
+| 10 | [Naive Bayes & SVM](notebooks/10_naive_bayes_and_svm.ipynb)       | Bayes, hinge loss, kernels          |
+| 11 | [Tiny Autodiff](notebooks/11_micrograd_autodiff.ipynb)            | Reverse-mode autodiff               |
+
+---
+
+## 🏗️ Repository Structure
+
+```text
+ml-from-scratch/
+│
+├── notebooks/
+│   ├── 00_setup_and_numpy_refresher.ipynb
+│   ├── 01_linear_regression.ipynb
+│   ├── 02_gradient_descent.ipynb
+│   ├── 03_logistic_regression.ipynb
+│   ├── 04_neural_network_backprop.ipynb
+│   ├── 05_regularization.ipynb
+│   ├── 06_knn_and_kmeans.ipynb
+│   ├── 07_decision_trees.ipynb
+│   ├── 08_pca_and_dimensionality.ipynb
+│   ├── 09_model_evaluation.ipynb
+│   ├── 10_naive_bayes_and_svm.ipynb
+│   └── 11_micrograd_autodiff.ipynb
+│
+├── mlscratch/
+│   ├── activations.py
+│   ├── losses.py
+│   ├── models.py
+│   ├── optim.py
+│   ├── neighbors.py
+│   ├── cluster.py
+│   ├── tree.py
+│   ├── decomposition.py
+│   ├── naive_bayes.py
+│   ├── svm.py
+│   ├── autograd.py
+│   ├── metrics.py
+│   └── utils.py
+│
+├── tests/
+├── requirements.txt
+├── CONTRIBUTING.md
+└── LICENSE
+```
+
+---
+
+## 🔬 Correctness First
+
+One of the main goals of this project is not simply making the algorithms run.
+
+It's making sure the mathematics is actually correct.
+
+For gradient-based algorithms, analytical gradients are compared against central-difference numerical gradients.
+
+### Current verification
+
+```text
+59 tests passed
+```
+
+Neural-network backpropagation:
+
+```text
+Worst relative error: 1.2e-8
+```
+
+Autodiff engine:
+
+```text
+Worst relative error: 3.1e-8
+```
+
+This catches a class of bugs that ordinary training tests can easily miss.
+
+---
+
+## 🧪 Testing
+
+Run the complete suite:
+
+```bash
+pytest tests/ -v
+```
+
+The tests cover:
+
+### The tests cover
+
+ 🧮 **Gradient calculations**
+ 📈 **Regression models**
+ 🎯 **Classification models**
+ 🧠 **Neural-network backpropagation**
+ 🔎 **k-NN**
+ 🔵 **k-Means**
+ 🌳 **Decision trees**
+ 🌲 **Random forests**
+ 📉 **PCA**
+ 📊 **Naive Bayes**
+ ⚡ **SVM**
+ 🔗 **Kernel behavior**
+ 🤖 **Automatic differentiation**
+ 🛡️ **Numerical edge cases**
+
+---
+
+## 📦 Reusable Python Package
+
+The notebooks are designed for learning.
+
+The `mlscratch` package contains the cleaned-up implementations.
 
 ```python
 from mlscratch.models import NeuralNetwork
 from mlscratch.optim import Adam
 from mlscratch.metrics import accuracy
 
-net = NeuralNetwork([2, 32, 16, 2], seed=0)
-net.fit(X_train, y_train, epochs=150, optimizer=Adam(lr=0.01))
+model = NeuralNetwork(
+    [2, 32, 16, 2],
+    seed=0
+)
 
-print(accuracy(y_test, net.predict(X_test)))
+model.fit(
+    X_train,
+    y_train,
+    epochs=150,
+    optimizer=Adam(lr=0.01)
+)
+
+predictions = model.predict(X_test)
+
+print(accuracy(y_test, predictions))
 ```
-
-| Module | Contents |
-|---|---|
-| `activations.py` | sigmoid, ReLU, tanh, softmax — all numerically stable |
-| `losses.py` | MSE, binary & categorical cross entropy, with gradients |
-| `models.py` | `LinearRegression`, `LogisticRegression`, `NeuralNetwork` |
-| `optim.py` | `SGD` (with momentum), `Adam` (with bias correction) |
-| `neighbors.py` | `KNNClassifier`, `KNNRegressor`, vectorised distance metrics |
-| `cluster.py` | `KMeans` with k-means++, silhouette score |
-| `tree.py` | `DecisionTreeClassifier`, `RandomForestClassifier`, Gini/entropy |
-| `decomposition.py` | `PCA` via SVD, with whitening and reconstruction |
-| `naive_bayes.py` | `GaussianNB`, `MultinomialNB` with Laplace smoothing |
-| `svm.py` | `LinearSVM`, `KernelSVM`, RBF and polynomial kernels |
-| `autograd.py` | `Value`, `Neuron`, `Layer`, `MLP` — reverse-mode autodiff |
-| `metrics.py` | accuracy, precision/recall/F1, confusion matrix, R² |
-| `utils.py` | train/test split, mini-batching, standardisation, gradient checking |
 
 ---
 
-## On correctness
-
-A wrong gradient doesn't raise an exception. Training still runs, the loss still
-goes down, and you end up with a model that quietly underperforms for reasons
-you'll never find.
-
-So every analytic gradient here is checked against central-difference finite
-differences, and those checks run in CI:
+## 🚀 Quick Start
 
 ```bash
-pytest tests/ -v
+git clone https://github.com/hamza01055/ml-from-scratch.git
+
+cd ml-from-scratch
+
+python -m venv .venv
 ```
 
-```
-tests/test_gradients.py  ..........        analytic vs finite differences
-tests/test_models.py     ......            do the models actually learn?
-tests/test_classical.py  ...............   kNN, k-means, trees, PCA, NB, SVM
-tests/test_autograd.py   .............     the autodiff engine
-59 passed in 14.74s
+### macOS / Linux
+
+```bash
+source .venv/bin/activate
 ```
 
-Three checks worth calling out:
+### Windows
 
-- **Backprop** (chapter 04) is compared against central-difference finite
-  differences for every weight and bias matrix. Worst relative error: `1.2e-8`.
-- **The autodiff engine** (chapter 11) is checked the same way across a whole
-  network. Worst relative error: `3.1e-8`. Two completely independent
-  implementations agreeing to eight digits is the strongest evidence available
-  that both are right.
-- **`test_kernel_svm_converges_across_C`** is a regression test. With a constant
-  step size the subgradient method diverged for large `C` and silently collapsed
-  to predicting one class. That bug is now pinned.
+```bash
+.venv\Scripts\activate
+```
 
----
+Install dependencies:
 
-## What you need to know first
+```bash
+pip install -r requirements.txt
+```
 
-- **Python** — comfortable with functions, classes, and NumPy basics
-- **Calculus** — what a derivative is, and the chain rule. That's genuinely it;
-  everything else is derived in place.
-- **Linear algebra** — matrix multiplication and what a shape means
+Launch the notebooks:
 
-You do **not** need prior ML experience. That's the point.
+```bash
+jupyter lab notebooks/
+```
 
----
+Start here:
 
-## A few things I got wrong along the way
-
-Left in deliberately, because the mistakes are more instructive than the fixes:
-
-- **Greedy trees can't do XOR.** I initially claimed the tree "found the two
-  boundaries on its own." It didn't — every root split on XOR has near-zero
-  information gain, so noise decides which one wins. Chapter 07 now shows the
-  actual numbers.
-- **Kernel SVMs need a decaying step size.** Hinge loss is non-smooth, so this is
-  *subgradient* descent, which only converges with a diminishing step. A constant
-  step made `b` drift without bound. Chapter 10 explains it.
-- **PCA can make things worse.** I expected it to rescue k-NN from the curse of
-  dimensionality. It didn't — PCA maximises variance and has no idea which
-  directions carry the label. Chapter 08 shows the table where it *hurt*.
-- **Leaking a scaler barely matters.** The classic "standardise before splitting"
-  error produced a difference indistinguishable from zero on my data. Chapter 09
-  says so rather than manufacturing a scary number.
-
-## Contributing
-
-Corrections, clearer explanations, and better exercises are all welcome.
-Issues are good for "this explanation didn't land" as well as for bugs — if
-something was confusing, that's a defect in the writing.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+```text
+notebooks/00_setup_and_numpy_refresher.ipynb
+```
 
 ---
 
-## References
+## ☁️ Google Colab
 
-Books and courses that shaped these notes. All are worth your time:
+Don't want to install anything?
 
-- Bishop, *Pattern Recognition and Machine Learning*
-- Goodfellow, Bengio & Courville, [*Deep Learning*](https://www.deeplearningbook.org/) (free online)
-- Hastie, Tibshirani & Friedman, [*The Elements of Statistical Learning*](https://hastie.su.domains/ElemStatLearn/) (free online)
-- Andrej Karpathy, [*Neural Networks: Zero to Hero*](https://karpathy.ai/zero-to-hero.html)
-- Andrew Ng, [Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction)
+Open the repository in Google Colab:
+
+**[Open in Google Colab →](https://colab.research.google.com/github/hamza01055/ml-from-scratch)**
 
 ---
 
-## License
+## 💡 Lessons From Building It
 
-MIT — see [LICENSE](LICENSE). Use it, fork it, teach from it.
+This repository also documents mistakes and failed assumptions.
 
-If it helped, a star costs you nothing and helps someone else find it.
+### Decision Trees and XOR
+
+Greedy decision trees don't automatically discover the correct XOR structure when individual splits provide little information gain.
+
+### Kernel SVM
+
+Hinge-loss optimization is non-smooth. Using an inappropriate constant step size caused instability for large values of `C`.
+
+### PCA
+
+PCA maximizes variance, not predictive power. Dimensionality reduction can therefore make classification worse.
+
+### Data Leakage
+
+Standardizing data before splitting is still leakage even when the resulting metric difference appears negligible.
+
+These failures are part of the project because understanding **why something fails** is often more valuable than seeing only the successful implementation.
+
+---
+
+## 🛠️ Tech Stack
+
+```text
+Python
+NumPy
+Jupyter
+Matplotlib
+Pytest
+GitHub Actions
+```
+
+The core ML algorithms are implemented without high-level ML frameworks.
+
+---
+
+## 🎓 Prerequisites
+
+You only need:
+
+**Python**
+
+Functions, classes, and basic NumPy.
+
+**Calculus**
+
+Derivatives and the chain rule.
+
+**Linear Algebra**
+
+Vectors, matrices, multiplication, and shapes.
+
+You don't need previous machine-learning experience.
+
+---
+
+## 🤝 Contributing
+
+Found a bug?
+
+Have a clearer explanation?
+
+Want to improve an exercise?
+
+Open an issue or submit a pull request.
+
+If an explanation is confusing, consider that a documentation bug.
+
+---
+
+## 📖 References
+
+* Christopher Bishop — *Pattern Recognition and Machine Learning*
+* Goodfellow, Bengio & Courville — *Deep Learning*
+* Hastie, Tibshirani & Friedman — *The Elements of Statistical Learning*
+* Andrej Karpathy — *Neural Networks: Zero to Hero*
+* Andrew Ng — *Machine Learning Specialization*
+
+---
+
+## 👨‍💻 Author
+
+### Hamza Shahzad
+
+AI Engineer focused on building production-ready AI systems.
+
+Interested in:
+
+`AI` · `Machine Learning` · `LLMs` · `Agentic AI` · `RAG` · `AI Automation` · `Computer Vision` · `Python` · `FastAPI`
+
+This repository represents the fundamentals behind that work:
+
+> **Learn the mathematics. Build the algorithm. Verify the implementation.**
+
+---
+
+## ⭐ Support
+
+If this project helped you understand an ML concept, consider giving it a ⭐.
+
+It helps other developers discover the repository.
+
+**GitHub:**
+[https://github.com/hamza01055/ml-from-scratch](https://github.com/hamza01055/ml-from-scratch)
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE).
+
+```
+
+**One important polish point:** don't oversell the repo with phrases like “production-ready ML framework.” Your strongest positioning is actually better: **you built the fundamentals yourself and verified them mathematically.** That's a very good portfolio story for an AI Engineer.
+```
