@@ -90,18 +90,30 @@ The goal is to understand **what happens underneath them**.
 
 By the end of the repository, you'll have implemented:
 
-🧮 Linear Regression — Normal equation and gradient descent
+🧮 Linear Regression — Normal equation and gradient descent 
+
 🎯 Logistic Regression — Sigmoid and cross-entropy
+
 🧠 Neural Networks — Backpropagation from scratch
+
 ⚡ Optimizers — SGD, Momentum, and Adam
+
 🛡️ Regularization — L1, L2, dropout, and early stopping
+
 📍 k-NN & k-Means — Classification and clustering
+
 🌳 Decision Trees & Random Forests — Gini, information gain, bagging, and OOB evaluation
+
 📉 PCA — Dimensionality reduction using SVD
+
 📊 Model Evaluation — Cross-validation, ROC/AUC, and data leakage
+
 📐 Naive Bayes — Gaussian and Multinomial implementations
-🔷 SVMs — Linear and kernel SVMs
-🔄 Automatic Differentiation — A tiny reverse-mode autodiff engine
+
+🔷 SVMs — Linear and kernel SVMs 
+
+🔄 Automatic Differentiation — A tiny reverse-mode autodiff engine  
+
 ---
 
 ## 📚 Chapters
@@ -207,19 +219,32 @@ The tests cover:
 
 ### The tests cover
 
- 🧮 **Gradient calculations**
+ 🧮 **Gradient calculations** 
+
  📈 **Regression models**
+ 
  🎯 **Classification models**
+ 
  🧠 **Neural-network backpropagation**
+ 
  🔎 **k-NN**
+ 
  🔵 **k-Means**
+ 
  🌳 **Decision trees**
+ 
  🌲 **Random forests**
+ 
  📉 **PCA**
+ 
  📊 **Naive Bayes**
+ 
  ⚡ **SVM**
+ 
  🔗 **Kernel behavior**
+ 
  🤖 **Automatic differentiation**
+ 
  🛡️ **Numerical edge cases**
 
 ---
