@@ -1,45 +1,54 @@
-Absolutely. I’d polish it into a **recruiter-friendly, professional open-source README** while keeping the technical depth.
+<div align="center">
 
-The biggest improvements should be:
+<h1>Machine Learning From Scratch</h1>
 
-* Stronger hero section
-* Clean badges
-* Quick project metrics
-* Better chapter navigation
-* Architecture/learning roadmap
-* Clear distinction between notebooks and reusable package
-* Stronger testing/correctness section
-* Less repetitive text
-* Better “Why this matters” positioning
-* Professional About section
-* Cleaner ending CTA
+<p><strong>Understand machine learning by building it from the ground up.</strong></p>
 
-### Recommended opening
+<p>
+12 core machine learning chapters implemented with <strong>Python + NumPy</strong> —<br>
+derived mathematically, visualized experimentally, and verified numerically.
+</p>
 
-````md
-# Machine Learning From Scratch
+<p>
+<code>No scikit-learn</code> &nbsp;·&nbsp;
+<code>No PyTorch</code> &nbsp;·&nbsp;
+<code>No black-box model.fit()</code>
+</p>
 
-> **Understand machine learning by building it from the ground up.**
+<p>
+<img alt="Python" src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white">
+<img alt="NumPy" src="https://img.shields.io/badge/NumPy-From%20Scratch-013243?style=for-the-badge&logo=numpy&logoColor=white">
+<img alt="Jupyter" src="https://img.shields.io/badge/Jupyter-Notebooks-F37626?style=for-the-badge&logo=jupyter&logoColor=white">
+<br>
+<img alt="Tests" src="https://img.shields.io/badge/Tests-59%20Passing-2EA44F?style=for-the-badge&logo=pytest&logoColor=white">
+<img alt="Chapters" src="https://img.shields.io/badge/Chapters-12-orange?style=for-the-badge">
+<img alt="License" src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge">
+</p>
 
-12 core machine learning chapters implemented with **Python + NumPy**, explained through mathematical derivations, visual experiments, and automated tests.
+<p>
+<a href="#-chapters"><strong>Chapters</strong></a> &nbsp;·&nbsp;
+<a href="#-quick-start"><strong>Quick Start</strong></a> &nbsp;·&nbsp;
+<a href="#-correctness-first"><strong>Correctness</strong></a> &nbsp;·&nbsp;
+<a href="#-reusable-python-package"><strong>Package</strong></a> &nbsp;·&nbsp;
+<a href="#-lessons-from-building-it"><strong>Lessons</strong></a> &nbsp;·&nbsp;
+<a href="https://colab.research.google.com/github/hamza01055/ml-from-scratch"><strong>Open in Colab</strong></a>
+</p>
 
-No `scikit-learn`.  
-No PyTorch.  
-No black-box `model.fit()`.
+<br>
 
-Just the mathematics, the implementation, and the reasoning behind the algorithms.
+</div>
 
-[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](#)
-[![NumPy](https://img.shields.io/badge/NumPy-From%20Scratch-013243?logo=numpy&logoColor=white)](#)
-[![Tests](https://img.shields.io/badge/Tests-59%20Passing-2ea44f)](#testing)
-[![Notebooks](https://img.shields.io/badge/Notebooks-12-orange)](#chapters)
-[![License](https://img.shields.io/badge/License-MIT-green)](#license)
+---
+
+<div align="center">
+<em>Just the mathematics, the implementation, and the reasoning behind the algorithms.</em>
+</div>
 
 ---
 
 ## ⚡ At a Glance
 
-| | |
+|  |  |
 |---|---|
 | **12** | Complete ML chapters |
 | **59** | Automated tests |
@@ -60,7 +69,7 @@ Modern ML libraries make it incredibly easy to train a model:
 
 ```python
 model.fit(X, y)
-````
+```
 
 But that single line hides almost everything interesting.
 
@@ -90,48 +99,37 @@ The goal is to understand **what happens underneath them**.
 
 By the end of the repository, you'll have implemented:
 
-🧮 Linear Regression — Normal equation and gradient descent 
-
-🎯 Logistic Regression — Sigmoid and cross-entropy
-
-🧠 Neural Networks — Backpropagation from scratch
-
-⚡ Optimizers — SGD, Momentum, and Adam
-
-🛡️ Regularization — L1, L2, dropout, and early stopping
-
-📍 k-NN & k-Means — Classification and clustering
-
-🌳 Decision Trees & Random Forests — Gini, information gain, bagging, and OOB evaluation
-
-📉 PCA — Dimensionality reduction using SVD
-
-📊 Model Evaluation — Cross-validation, ROC/AUC, and data leakage
-
-📐 Naive Bayes — Gaussian and Multinomial implementations
-
-🔷 SVMs — Linear and kernel SVMs 
-
-🔄 Automatic Differentiation — A tiny reverse-mode autodiff engine  
+- 🧮 **Linear Regression** — Normal equation and gradient descent
+- 🎯 **Logistic Regression** — Sigmoid and cross-entropy
+- 🧠 **Neural Networks** — Backpropagation from scratch
+- ⚡ **Optimizers** — SGD, Momentum, and Adam
+- 🛡️ **Regularization** — L1, L2, dropout, and early stopping
+- 📍 **k-NN & k-Means** — Classification and clustering
+- 🌳 **Decision Trees & Random Forests** — Gini, information gain, bagging, and OOB evaluation
+- 📉 **PCA** — Dimensionality reduction using SVD
+- 📊 **Model Evaluation** — Cross-validation, ROC/AUC, and data leakage
+- 📐 **Naive Bayes** — Gaussian and Multinomial implementations
+- 🔷 **SVMs** — Linear and kernel SVMs
+- 🔄 **Automatic Differentiation** — A tiny reverse-mode autodiff engine
 
 ---
 
 ## 📚 Chapters
 
-| #  | Topic                                                             | Key Concepts                        |
-| -- | ----------------------------------------------------------------- | ----------------------------------- |
+| # | Topic | Key Concepts |
+|---|---|---|
 | 00 | [NumPy Foundations](notebooks/00_setup_and_numpy_refresher.ipynb) | Shapes, broadcasting, vectorization |
-| 01 | [Linear Regression](notebooks/01_linear_regression.ipynb)         | Normal equation, gradient descent   |
-| 02 | [Optimization](notebooks/02_gradient_descent.ipynb)               | SGD, Momentum, Adam                 |
-| 03 | [Logistic Regression](notebooks/03_logistic_regression.ipynb)     | Sigmoid, cross-entropy, boundaries  |
-| 04 | [Neural Networks](notebooks/04_neural_network_backprop.ipynb)     | MLP, backpropagation                |
-| 05 | [Regularization](notebooks/05_regularization.ipynb)               | Ridge, Lasso, dropout               |
-| 06 | [k-NN & k-Means](notebooks/06_knn_and_kmeans.ipynb)               | Neighbors, clustering, k-means++    |
-| 07 | [Decision Trees](notebooks/07_decision_trees.ipynb)               | Gini, entropy, random forests       |
-| 08 | [PCA](notebooks/08_pca_and_dimensionality.ipynb)                  | SVD, variance, reconstruction       |
-| 09 | [Model Evaluation](notebooks/09_model_evaluation.ipynb)           | CV, ROC/AUC, leakage                |
-| 10 | [Naive Bayes & SVM](notebooks/10_naive_bayes_and_svm.ipynb)       | Bayes, hinge loss, kernels          |
-| 11 | [Tiny Autodiff](notebooks/11_micrograd_autodiff.ipynb)            | Reverse-mode autodiff               |
+| 01 | [Linear Regression](notebooks/01_linear_regression.ipynb) | Normal equation, gradient descent |
+| 02 | [Optimization](notebooks/02_gradient_descent.ipynb) | SGD, Momentum, Adam |
+| 03 | [Logistic Regression](notebooks/03_logistic_regression.ipynb) | Sigmoid, cross-entropy, boundaries |
+| 04 | [Neural Networks](notebooks/04_neural_network_backprop.ipynb) | MLP, backpropagation |
+| 05 | [Regularization](notebooks/05_regularization.ipynb) | Ridge, Lasso, dropout |
+| 06 | [k-NN & k-Means](notebooks/06_knn_and_kmeans.ipynb) | Neighbors, clustering, k-means++ |
+| 07 | [Decision Trees](notebooks/07_decision_trees.ipynb) | Gini, entropy, random forests |
+| 08 | [PCA](notebooks/08_pca_and_dimensionality.ipynb) | SVD, variance, reconstruction |
+| 09 | [Model Evaluation](notebooks/09_model_evaluation.ipynb) | CV, ROC/AUC, leakage |
+| 10 | [Naive Bayes & SVM](notebooks/10_naive_bayes_and_svm.ipynb) | Bayes, hinge loss, kernels |
+| 11 | [Tiny Autodiff](notebooks/11_micrograd_autodiff.ipynb) | Reverse-mode autodiff |
 
 ---
 
@@ -217,35 +215,20 @@ pytest tests/ -v
 
 The tests cover:
 
-### The tests cover
-
- 🧮 **Gradient calculations** 
-
- 📈 **Regression models**
- 
- 🎯 **Classification models**
- 
- 🧠 **Neural-network backpropagation**
- 
- 🔎 **k-NN**
- 
- 🔵 **k-Means**
- 
- 🌳 **Decision trees**
- 
- 🌲 **Random forests**
- 
- 📉 **PCA**
- 
- 📊 **Naive Bayes**
- 
- ⚡ **SVM**
- 
- 🔗 **Kernel behavior**
- 
- 🤖 **Automatic differentiation**
- 
- 🛡️ **Numerical edge cases**
+- 🧮 Gradient calculations
+- 📈 Regression models
+- 🎯 Classification models
+- 🧠 Neural-network backpropagation
+- 🔎 k-NN
+- 🔵 k-Means
+- 🌳 Decision trees
+- 🌲 Random forests
+- 📉 PCA
+- 📊 Naive Bayes
+- ⚡ SVM
+- 🔗 Kernel behavior
+- 🤖 Automatic differentiation
+- 🛡️ Numerical edge cases
 
 ---
 
@@ -289,13 +272,13 @@ cd ml-from-scratch
 python -m venv .venv
 ```
 
-### macOS / Linux
+**macOS / Linux**
 
 ```bash
 source .venv/bin/activate
 ```
 
-### Windows
+**Windows**
 
 ```bash
 .venv\Scripts\activate
@@ -374,17 +357,11 @@ The core ML algorithms are implemented without high-level ML frameworks.
 
 You only need:
 
-**Python**
+**Python** — Functions, classes, and basic NumPy.
 
-Functions, classes, and basic NumPy.
+**Calculus** — Derivatives and the chain rule.
 
-**Calculus**
-
-Derivatives and the chain rule.
-
-**Linear Algebra**
-
-Vectors, matrices, multiplication, and shapes.
+**Linear Algebra** — Vectors, matrices, multiplication, and shapes.
 
 You don't need previous machine-learning experience.
 
@@ -406,11 +383,11 @@ If an explanation is confusing, consider that a documentation bug.
 
 ## 📖 References
 
-* Christopher Bishop — *Pattern Recognition and Machine Learning*
-* Goodfellow, Bengio & Courville — *Deep Learning*
-* Hastie, Tibshirani & Friedman — *The Elements of Statistical Learning*
-* Andrej Karpathy — *Neural Networks: Zero to Hero*
-* Andrew Ng — *Machine Learning Specialization*
+- Christopher Bishop — *Pattern Recognition and Machine Learning*
+- Goodfellow, Bengio & Courville — *Deep Learning*
+- Hastie, Tibshirani & Friedman — *The Elements of Statistical Learning*
+- Andrej Karpathy — *Neural Networks: Zero to Hero*
+- Andrew Ng — *Machine Learning Specialization*
 
 ---
 
@@ -436,16 +413,10 @@ If this project helped you understand an ML concept, consider giving it a ⭐.
 
 It helps other developers discover the repository.
 
-**GitHub:**
-[https://github.com/hamza01055/ml-from-scratch](https://github.com/hamza01055/ml-from-scratch)
+**GitHub:** [https://github.com/hamza01055/ml-from-scratch](https://github.com/hamza01055/ml-from-scratch)
 
 ---
 
 ## 📄 License
 
 MIT License — see [LICENSE](LICENSE).
-
-```
-
-**One important polish point:** don't oversell the repo with phrases like “production-ready ML framework.” Your strongest positioning is actually better: **you built the fundamentals yourself and verified them mathematically.** That's a very good portfolio story for an AI Engineer.
-```
