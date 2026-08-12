@@ -15,6 +15,7 @@ derived mathematically, visualized experimentally, and verified numerically.
 <code>No black-box model.fit()</code>
 </p>
 
+
 <p>
 <img alt="Python" src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white">
 <img alt="NumPy" src="https://img.shields.io/badge/NumPy-From%20Scratch-013243?style=for-the-badge&logo=numpy&logoColor=white">
