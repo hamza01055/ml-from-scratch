@@ -1,5 +1,6 @@
 <div align="center">
 
+
 <h1>Machine Learning From Scratch</h1>
 
 <p><strong>Understand machine learning by building it from the ground up.</strong></p>
